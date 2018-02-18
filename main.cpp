@@ -26,9 +26,11 @@ typedef std::shared_ptr<tcp::socket> SocketPtr;
 std::string getPath(const std::string& request)
 {
     std::istringstream sIn(request);
-    std::string getWord, dir;
-    sIn >> getWord >> dir;
-    dir.erase(dir.begin()); // remove '/' symbol
+    std::string getWord, body;
+    sIn >> getWord >> body;
+    
+    size_t paramsPos = body.find_first_of("?");
+    std::string dir = body.substr(1, paramsPos);
     return dir;
 }
 
