@@ -179,6 +179,6 @@ int main(int argc, char **argv)
     fs::current_path(cur_path);
     asio::io_service service;
     Server server;
-    server.run(service, ip, 5001);
+    server.run(service, ip, port);
     return 0;
 }
