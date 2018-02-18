@@ -107,7 +107,7 @@ private :
 
 struct Server
 {
-    void run(asio::io_service& io_service, const std::string& ip, short port)
+    void run(asio::io_service& io_service, const std::string& ip, unsigned short port)
     {
         tcp::acceptor a(io_service, tcp::endpoint(/*tcp::v4()*/asio::ip::address::from_string(ip), port));
         for (;;) {
@@ -156,7 +156,7 @@ int main(int argc, char **argv)
 {
     summonDaemon();
 
-    short port = 5001;
+    unsigned short port = 5001;
     std::string ip("127.0.0.1");
     std::string dir("1");
 
