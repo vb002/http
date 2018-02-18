@@ -30,7 +30,8 @@ std::string getPath(const std::string& request)
     sIn >> getWord >> body;
     
     size_t paramsPos = body.find_first_of("?");
-    std::string dir = body.substr(1, paramsPos);
+    std::string dir = body.substr(0, paramsPos);
+    dir.erase(dir.begin());
     return dir;
 }
 
